@@ -195,7 +195,7 @@ def run_test_repr():
         print('Actual for p2:  ', p2)
     """
     # --------------------------------------------------------------------------
-    # TODO: 4.  Follow the same instructions as in _TODO_ 3 above,
+    # COMPLETED: 4.  Follow the same instructions as in _TODO_ 3 above,
     #           but for the  __repr__  method specified above.
     # --------------------------------------------------------------------------
     print()
@@ -275,7 +275,7 @@ def run_test_clone():
         print('Actual for p3:  ', p3)
    """
     # --------------------------------------------------------------------------
-    # TODO: 5.  Follow the same instructions as in _TODO_ 3 above,
+    # COMPLETED: 5.  Follow the same instructions as in _TODO_ 3 above,
     #           but for the  clone  method specified above.
     # --------------------------------------------------------------------------
     print()
@@ -318,6 +318,7 @@ def run_test_clone():
     print('Actual for p2:  ', p2)
     print('Expected for p3: Point(777, 555)')
     print('Actual for p3:  ', p3)
+
 
 def run_test_move_to():
     """
