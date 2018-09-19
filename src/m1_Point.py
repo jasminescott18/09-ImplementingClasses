@@ -56,6 +56,14 @@ class Point(object):
     def clone(self):
         return Point(self.x, self.y)
 
+    def move_to(self, x, y):
+        self.x = x
+        self.y = y
+
+    def move_by(self, dx, dy):
+        self.x = self.x + dx
+        self.y = self.x + dy
+
 
 def run_test_init():
     """
@@ -373,7 +381,7 @@ def run_test_move_to():
             print('** in fact, it returned:', check_has_no_return)
     """
     # --------------------------------------------------------------------------
-    # TODO: 6.  Follow the same instructions as in _TODO_ 3 above,
+    # COMPLETED: 6.  Follow the same instructions as in _TODO_ 3 above,
     #           but for the  move_to  method specified above.
     # --------------------------------------------------------------------------
     print()
@@ -381,6 +389,35 @@ def run_test_move_to():
     print('Testing the   move_to   method of the Point class.')
     print('-----------------------------------------------------------')
 
+    p1 = Point(10, 8)
+    p2 = Point(50, 20)
+    print()
+    print('Expected for p1: Point(10, 8)')
+    print('Actual for p1:  ', p1)
+    print('Expected for p2: Point(50, 20)')
+    print('Actual for p2:  ', p2)
+
+    p1.move_to(5, -1)
+    p2.move_to(0, 0)
+    print()
+    print('Expected for p1: Point(5, -1)')
+    print('Actual for p1:  ', p1)
+    print('Expected for p2: Point(0, 0)')
+    print('Actual for p2:  ', p2)
+
+    p2.y = 99
+    print()
+    print('Expected for p1: Point(5, -1)')
+    print('Actual for p1:  ', p1)
+    print('Expected for p2: Point(0, 99)')
+    print('Actual for p2:  ', p2)
+
+    check_has_no_return = p2.move_to(0, 222)
+    print()
+    print('Expected for p1: Point(5, -1)')
+    print('Actual for p1:  ', p1)
+    print('Expected for p2: Point(0, 222)')
+    print('Actual for p2:  ', p2)
 
 def run_test_move_by():
     """
@@ -439,11 +476,40 @@ def run_test_move_by():
     # TODO: 7.  Follow the same instructions as in _TODO_ 3 above,
     #           but for the  move_by  method specified above.
     # --------------------------------------------------------------------------
+
     print()
     print('-----------------------------------------------------------')
     print('Testing the   move_by   method of the Point class.')
     print('-----------------------------------------------------------')
+    p1 = Point(10, 8)
+    p2 = Point(50, 20)
+    print()
+    print('Expected for p1: Point(10, 8)')
+    print('Actual for p1:  ', p1)
+    print('Expected for p2: Point(50, 20)')
+    print('Actual for p2:  ', p2)
 
+    p1.move_by(5, -1)
+    p2.move_by(0, 0)
+    print()
+    print('Expected for p1: Point(15, 7)')
+    print('Actual for p1:  ', p1)
+    print('Expected for p2: Point(50, 20)')
+    print('Actual for p2:  ', p2)
+
+    p2.move_by(200, 0)
+    print()
+    print('Expected for p1: Point(15, 7)')
+    print('Actual for p1:  ', p1)
+    print('Expected for p2: Point(250, 20)')
+    print('Actual for p2:  ', p2)
+
+    check_has_no_return = p2.move_by(-100, 300)
+    print()
+    print('Expected for p1: Point(15, 7)')
+    print('Actual for p1:  ', p1)
+    print('Expected for p2: Point(150, 320)')
+    print('Actual for p2:  ', p2)
 
 def run_test_get_number_of_moves_made():
     """
