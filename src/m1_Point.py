@@ -61,18 +61,18 @@ class Point(object):
         return Point(self.x, self.y)
 
     def move_to(self, x, y):
+        self.distance_x = self.distance_x + (x - self.x)
+        self.distance_y = self.distance_y + (y - self.y)
         self.x = x
         self.y = y
         self.count = self.count + 1
-        self.distance_x = self.distance_x + x
-        self.distance_y = self.distance_y + y
 
     def move_by(self, dx, dy):
-        self.x = self.x + dx
-        self.y = self.x + dy
-        self.count = self.count + 1
         self.distance_x = self.distance_x + dx
         self.distance_y = self.distance_y + dy
+        self.x = self.x + dx
+        self.y = self.y + dy
+        self.count = self.count + 1
 
     def get_number_of_moves_made(self):
         return self.count
@@ -82,8 +82,12 @@ class Point(object):
         return distance
 
     def get_distance_from_start(self):
-        distance_from_start = (self.distance_x ** 2) + (self.distance_y ** 2)
-        return math.sqrt(distance_from_start)
+        get_distance_from_start = math.sqrt((self.distance_x ** 2) + (self.distance_y ** 2))
+        return get_distance_from_start
+
+    def get_distance_traveled(self):
+        travel = self.distance_x + self.distance_y
+        return travel
 
 
 def run_test_init():
@@ -648,6 +652,7 @@ def run_test_get_number_of_moves_made():
     print('Expected for p2 moves made: 5')
     print('Actual for p2 moves made:  ', p2.get_number_of_moves_made())
 
+
 def run_test_get_distance_from():
     """
     Tests the   get_distance_from   method of the Point class.
@@ -751,6 +756,7 @@ def run_test_get_distance_from():
     print('Expected p2 to p4: 9.0')
     print('Actual   p2 to p4:', p2.get_distance_from(p4))
 
+
 def run_test_get_distance_from_start():
     """
     Tests the   get_distance_from_START   method of the Point class.
@@ -798,7 +804,7 @@ def run_test_get_distance_from_start():
         print('Actually is:', p2.get_distance_from_start())
     """
     # --------------------------------------------------------------------------
-    # TODO: 10.  Follow the same instructions as in _TODO_ 3 above,
+    # COMPLETED: 10.  Follow the same instructions as in _TODO_ 3 above,
     #    but for the  get_distance_from_START  method specified above.
     # --------------------------------------------------------------------------
     print()
@@ -876,7 +882,7 @@ def run_test_get_distance_traveled():
         print('Actual:', p4.get_distance_traveled())
     """
     # --------------------------------------------------------------------------
-    # TODO: 11.  Follow the same instructions as in _TODO_ 3 above,
+    # COMPLETED: 11.  Follow the same instructions as in _TODO_ 3 above,
     #    but for the  get_distance_traveled  method specified above.
     # --------------------------------------------------------------------------
     print()
@@ -904,6 +910,7 @@ def run_test_get_distance_traveled():
         p2.move_by(0, k + 1)
         p3.move_by(k + 1, 0)
         p4.move_to(k + 1, 555)
+
 
 def run_test_closer_to():
     """
