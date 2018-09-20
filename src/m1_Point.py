@@ -89,6 +89,13 @@ class Point(object):
         travel = self.distance_x + self.distance_y
         return travel
 
+    def closer_to(self, point, point1):
+        distance_point = math.sqrt((point.x ** 2) + (point.y ** 2))
+        distance_point1 = math.sqrt((point1.x ** 2) + (point1.y ** 2))
+        if distance_point <= distance_point1:
+            return point
+        else: return point1
+
 
 def run_test_init():
     """
